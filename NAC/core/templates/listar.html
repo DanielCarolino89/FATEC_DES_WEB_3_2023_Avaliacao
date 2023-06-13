@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <title>Daniel Carolino</title>
+    <style>
+        body{background-color:ghostwhite;} th,td {font-size: 28spx;}
+    </style>
+</head>
+
+<body>
+    <br><br><br>
+    <div style="text-align:center;">
+        <a href="https://fatecararas.cps.sp.gov.br/nac-nucleo-de-apoio-a-carreira/" class="btn btn-danger btn-lg">
+            <h1>CONHEÇA O NAC (Núcleo de Apoio à Carreira)</h1>
+        </a>
+    </div>
+    <br>
+    <div class="container table-responsive" style="border:solid blue;padding:30px; width:1200px;margin-top:50px">
+
+        {% if ListarPresenca %}
+
+        <h1 style="text-align:center;color:blue">LISTA DE PRESENÇA EVENTO DA NAC</h1><br>
+        <table class="table table-striped" style="border:solid lightblue;">
+            <tr>
+                <th>DATA DO EVENTO</th>
+                <th>NOME DO ALUNO</th>
+                <th>PROFESSOR RESPONSÁVEL</th>
+                <th>MÁTERIA</th>
+            </tr>
+
+            {% for item in ListarPresenca %}
+
+            <tr>
+                <td>{{item.data}}</td>
+                <td>{{item.aluno}}</td>
+                <td>{{item.professor}}</td>
+                <td>{{item.materia}}</td>
+            </tr>
+
+            {% endfor%}
+        </table>
+        {% else %}
+        <br>
+        <table class="table table-striped" style="border:solid lightblue;">
+            <tr>
+                <th style="text-align:center;" colspan="4"><b style="color:red">NENHUM REGISTO</b></th>
+            </tr>
+
+            {% endif %}
+        </table>
+    </div>
+    <br>
+    <center>
+        <div>
+            <a href="{% url 'Cadastro' %}" class="btn btn-warning btn-lg">
+                <h3>Voltar ao cadastro</h3>
+            </a>
+        </div>
+
+        <br><br>
+        <footer id="footer">
+            <a href="https://github.com/DanielCarolino89" style="text-align:center;border:solid lightblue;padding:20px;width:1200px" class="bg-light btn"  >
+                <h3><b>Projeto Avaliação Final WEB3 - Fatec Araras - ® Daniel Carolino - 3º Semestre 2023</b></h3></a>
+            </div>
+        </footer>
+    </center>
+    </div>
+
+
+</body>
+
+</html>
