@@ -15,11 +15,13 @@ class IndexTest(TestCase):
     def test_template(self):
         self.assertTemplateUsed(self.resp, 'index.html')
 
-class AtividadeModelTest(TestCase):
+class ListaModelTest(TestCase):
     def setUp(self):
         self.cadastro = ListaModels(
-            aluno='Aluno de teste',
-            professor='Orlando Júnior - Desenvolvimento Web III',
+            data='2023-06-14',
+            aluno='Nome do aluno teste',
+            professor ='Orlando Júnior',
+            materia = 'Desenvolvimento Web III',
         )
         self.cadastro.save()
 
